@@ -7,3 +7,4 @@ hs.alert.show("Config loaded")
 -- load other config
 require "window"
 require "toggle"
+require "clipboard"
