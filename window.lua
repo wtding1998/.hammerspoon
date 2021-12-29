@@ -1,7 +1,7 @@
 -- TODO: use Winwin spoon.  https://github.com/ashfinal/awesome-hammerspoon/blob/master/init.lua
 -- copied from https://github.com/wangshub/hammerspoon-config/blob/master/window/window.lua
 -- Window management
-
+hs.window.animationDuration = 0
 -- Defines for window maximize toggler
 local frameCache = {}
 local logger = hs.logger.new("windows")
@@ -131,11 +131,15 @@ end
 -------- Key bindings
 
 -- Halves of the screen
-hs.hotkey.bind({"option"}, "Left",  hs.fnutils.partial(winresize, "left"))
-hs.hotkey.bind({"option"}, "Right", hs.fnutils.partial(winresize, "right"))
-hs.hotkey.bind({"option"}, "Up",    hs.fnutils.partial(winresize, "up"))
-hs.hotkey.bind({"option"}, "Down",  hs.fnutils.partial(winresize, "down"))
+-- hs.hotkey.bind({"option"}, "Left",  hs.fnutils.partial(winresize, "left"))
+-- hs.hotkey.bind({"option"}, "Right", hs.fnutils.partial(winresize, "right"))
+-- hs.hotkey.bind({"option"}, "Up",    hs.fnutils.partial(winresize, "up"))
+-- hs.hotkey.bind({"option"}, "Down",  hs.fnutils.partial(winresize, "down"))
 
+hs.hotkey.bind({"option"}, "h",  hs.fnutils.partial(winresize, "left"))
+hs.hotkey.bind({"option"}, "l", hs.fnutils.partial(winresize, "right"))
+hs.hotkey.bind({"option"}, "k",    hs.fnutils.partial(winresize, "up"))
+hs.hotkey.bind({"option"}, "j",  hs.fnutils.partial(winresize, "down"))
 -- Center of the screen
 hs.hotkey.bind({"ctrl", "option"}, "C", center)
 

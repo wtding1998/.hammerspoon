@@ -6,12 +6,12 @@ hs.hotkey.bind(myhyper, "3", function() toggleApp("com.microsoft.edgemac") end)
 hs.hotkey.bind(myhyper, "2", function() toggleApp("com.apple.Terminal") end)
 hs.hotkey.bind(myhyper, "4", function() toggleApp("com.apple.mail") end)
 hs.hotkey.bind(myhyper, "s", function() toggleApp("com.tencent.xinWeChat") end)
-hs.hotkey.bind(myhyper, "j", function() toggleApp("com.tencent.qq") end)
+hs.hotkey.bind(myhyper, "p", function() toggleApp("com.tencent.qq") end)
 hs.hotkey.bind(myhyper, "v", function() toggleApp("com.microsoft.VSCode") end)
 hs.hotkey.bind(myhyper, "q", function() toggleApp("com.apple.Preview") end)
 
 
-hs.hotkey.bind(myhyper, "l", function() hs.caffeinate.lockScreen() end)
+hs.hotkey.bind(myhyper, "0", function() hs.caffeinate.lockScreen() end)
 
 -- hs.hotkey.bind(myhyper, "t", function() hs.execute("/Library/Input\\ Methods/Squirrel.app/Contents/MacOS/squirrel_client -t ascii_mode")  end )
 -- hs.hotkey.bind(myhyper, "w", function() toggleApp("com.wunderkinder.wunderlistdesktop") end )
