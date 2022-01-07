@@ -9,7 +9,8 @@ hs.hotkey.bind(myhyper, "s", function() toggleApp("com.tencent.xinWeChat") end)
 hs.hotkey.bind(myhyper, "p", function() toggleApp("com.tencent.qq") end)
 hs.hotkey.bind(myhyper, "v", function() toggleApp("com.microsoft.VSCode") end)
 hs.hotkey.bind(myhyper, "q", function() toggleApp("com.apple.Preview") end)
-
+hs.hotkey.bind(myhyper, "o", function() toggleApp("org.zotero.zotero") end)
+hs.hotkey.bind(myhyper, "i", function() toggleApp("com.kingsoft.wpsoffice.mac") end)
 
 hs.hotkey.bind(myhyper, "0", function() hs.caffeinate.lockScreen() end)
 
