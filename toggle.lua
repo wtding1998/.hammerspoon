@@ -5,6 +5,7 @@ hs.hotkey.bind(myhyper, "1", function() toggleFinder() end)
 hs.hotkey.bind(myhyper, "3", function() toggleApp("com.microsoft.edgemac") end)
 hs.hotkey.bind(myhyper, "2", function() toggleApp("com.apple.Terminal") end)
 hs.hotkey.bind(myhyper, "4", function() toggleApp("com.apple.mail") end)
+hs.hotkey.bind(myhyper, "9", function() toggleApp("com.netease.163music") end)
 hs.hotkey.bind(myhyper, "s", function() toggleApp("com.tencent.xinWeChat") end)
 hs.hotkey.bind(myhyper, "p", function() toggleApp("com.tencent.qq") end)
 hs.hotkey.bind(myhyper, "v", function() toggleApp("com.microsoft.VSCode") end)
@@ -137,6 +138,7 @@ function toggleEmacs()        --    toggle emacsclient if emacs daemon not start
             emacsApp:activate()      -- 将刚创建的窗口前置
          end
       end
+   hs.eventtap.keyStroke({"option", "cmd"}, "h", 0)
    end
 end
 
