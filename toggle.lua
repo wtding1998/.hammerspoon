@@ -10,16 +10,14 @@ hs.hotkey.bind(myhyper, "s", function() toggleApp("com.tencent.xinWeChat") end)
 hs.hotkey.bind(myhyper, "p", function() toggleApp("com.tencent.qq") end)
 hs.hotkey.bind(myhyper, "v", function() toggleApp("com.microsoft.VSCode") end)
 hs.hotkey.bind(myhyper, "q", function() toggleApp("com.apple.Preview") end)
-hs.hotkey.bind(myhyper, "o", function() toggleApp("org.zotero.zotero") end)
+hs.hotkey.bind(myhyper, "z", function() toggleApp("org.zotero.zotero") end)
 hs.hotkey.bind(myhyper, "i", function() toggleApp("com.kingsoft.wpsoffice.mac") end)
 
-hs.hotkey.bind(myhyper, "0", function() hs.caffeinate.lockScreen() end)
 
 -- hs.hotkey.bind(myhyper, "t", function() hs.execute("/Library/Input\\ Methods/Squirrel.app/Contents/MacOS/squirrel_client -t ascii_mode")  end )
 -- hs.hotkey.bind(myhyper, "w", function() toggleApp("com.wunderkinder.wunderlistdesktop") end )
 -- hs.hotkey.bind(myhyper, "/", function() toggleApp("com.apple.Notes") end )
 -- hs.hotkey.bind(myhyper, "n", function() toggleApp("com.apple.Notes") end )
--- hs.hotkey.bind(myhyper, "q",function() appKill() end)
 -- hs.hotkey.bind(myhyper, "w",function() appKill() end)
 -- hs.hotkey.bind(myhyper, "d", function() toggleApp("com.emmac.mac") end )
 -- hs.hotkey.bind(myhyper, "f", function() toggleApp("com.apple.Safari") end )
@@ -138,7 +136,7 @@ function toggleEmacs()        --    toggle emacsclient if emacs daemon not start
             emacsApp:activate()      -- 将刚创建的窗口前置
          end
       end
-   hs.eventtap.keyStroke({"option", "cmd"}, "h", 0)
+--   hs.eventtap.keyStroke({"option", "cmd"}, "h", 0)
    end
 end
 

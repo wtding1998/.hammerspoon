@@ -136,10 +136,11 @@ end
 -- hs.hotkey.bind({"option"}, "Up",    hs.fnutils.partial(winresize, "up"))
 -- hs.hotkey.bind({"option"}, "Down",  hs.fnutils.partial(winresize, "down"))
 
-hs.hotkey.bind({"option"}, "h",  hs.fnutils.partial(winresize, "left"))
-hs.hotkey.bind({"option"}, "l", hs.fnutils.partial(winresize, "right"))
-hs.hotkey.bind({"option"}, "k",    hs.fnutils.partial(winresize, "up"))
-hs.hotkey.bind({"option"}, "j",  hs.fnutils.partial(winresize, "down"))
+
+hs.hotkey.bind({"ctrl", "option"}, "h",  hs.fnutils.partial(winresize, "left"))
+hs.hotkey.bind({"ctrl", "option"}, "l", hs.fnutils.partial(winresize, "right"))
+hs.hotkey.bind({"ctrl", "option"}, "k",    hs.fnutils.partial(winresize, "up"))
+hs.hotkey.bind({"ctrl", "option"}, "j",  hs.fnutils.partial(winresize, "down"))
 -- Center of the screen
 hs.hotkey.bind({"ctrl", "option"}, "C", center)
 
@@ -156,3 +157,11 @@ hs.hotkey.bind({"ctrl", "alt", "cmd"}, "Up",    hs.fnutils.partial(winresize, "m
 -- Move between screens
 hs.hotkey.bind({"ctrl", "alt", "cmd"}, "Left",  hs.fnutils.partial(winmovescreen, "left"))
 hs.hotkey.bind({"ctrl", "alt", "cmd"}, "Right", hs.fnutils.partial(winmovescreen, "right"))
+
+-- close and lock
+hs.hotkey.bind({"option"}, "l", function() hs.caffeinate.systemSleep() end)
+hs.hotkey.bind({"shift", "option"}, "l", function() hs.caffeinate.lockScreen() end)
+
+-- close window and go to last app
+hs.hotkey.bind({"option"}, "0", function() hs.eventtap.keyStroke({"cmd"}, "w", 0) local app = hs.application.frontmostApplication() app:hide() end)
+hs.hotkey.bind({"option"}, "8", function() hs.eventtap.keyStroke({"cmd"}, "q", 0) end)
