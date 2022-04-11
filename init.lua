@@ -8,3 +8,4 @@ hs.alert.show("Config loaded")
 require "window"
 require "toggle"
 require "clipboard"
+-- require "edit"
