@@ -130,6 +130,11 @@ end
 
 -------- Key bindings
 
+local resizeWindow = {"shift", "option"}
+local moveWindow = {"ctrl", "option"}
+
+hs.loadSpoon("WinWin")
+
 -- Halves of the screen
 -- hs.hotkey.bind({"option"}, "Left",  hs.fnutils.partial(winresize, "left"))
 -- hs.hotkey.bind({"option"}, "Right", hs.fnutils.partial(winresize, "right"))
@@ -137,21 +142,28 @@ end
 -- hs.hotkey.bind({"option"}, "Down",  hs.fnutils.partial(winresize, "down"))
 
 
-hs.hotkey.bind({"ctrl", "option"}, "h",  hs.fnutils.partial(winresize, "left"))
-hs.hotkey.bind({"ctrl", "option"}, "l", hs.fnutils.partial(winresize, "right"))
-hs.hotkey.bind({"ctrl", "option"}, "k",    hs.fnutils.partial(winresize, "up"))
-hs.hotkey.bind({"ctrl", "option"}, "j",  hs.fnutils.partial(winresize, "down"))
+hs.hotkey.bind(moveWindow, "h",  hs.fnutils.partial(winresize, "left"))
+hs.hotkey.bind(moveWindow, "l", hs.fnutils.partial(winresize, "right"))
+hs.hotkey.bind(moveWindow, "k",    hs.fnutils.partial(winresize, "up"))
+hs.hotkey.bind(moveWindow, "j",  hs.fnutils.partial(winresize, "down"))
+
+
+hs.hotkey.bind(moveWindow, "u", function() spoon.WinWin:moveAndResize("cornerNW") end)
+hs.hotkey.bind(moveWindow, "i", function() spoon.WinWin:moveAndResize("cornerNE") end)
+hs.hotkey.bind(moveWindow, "o", function() spoon.WinWin:moveAndResize("cornerSW") end)
+hs.hotkey.bind(moveWindow, "p", function() spoon.WinWin:moveAndResize("cornerSE") end)
+
 -- Center of the screen
-hs.hotkey.bind({"ctrl", "option"}, "C", center)
+hs.hotkey.bind(moveWindow, "C", center)
 
 -- Thirds of the screen
-hs.hotkey.bind({"ctrl", "option"}, "Left",  left_third)
-hs.hotkey.bind({"ctrl", "option"}, "Right", right_third)
-hs.hotkey.bind({"ctrl", "option"}, "Up",    up_third)
-hs.hotkey.bind({"ctrl", "option"}, "Down",  down_third)
+-- hs.hotkey.bind(moveWindow, "Left",  left_third)
+-- hs.hotkey.bind(moveWindow, "Right", right_third)
+-- hs.hotkey.bind(moveWindow, "Up",    up_third)
+-- hs.hotkey.bind(moveWindow, "Down",  down_third)
 
 -- Maximized
-hs.hotkey.bind({"option"}, "F",     hs.fnutils.partial(winresize, "max"))
+hs.hotkey.bind({"option"}, "F", toggle_window_maximized)
 hs.hotkey.bind({"ctrl", "alt", "cmd"}, "Up",    hs.fnutils.partial(winresize, "max"))
 
 -- Move between screens
@@ -165,3 +177,21 @@ hs.hotkey.bind({"shift", "option"}, "l", function() hs.caffeinate.lockScreen() e
 -- close window and go to last app
 hs.hotkey.bind({"option"}, "0", function() hs.eventtap.keyStroke({"cmd"}, "w", 0) local app = hs.application.frontmostApplication() app:hide() end)
 hs.hotkey.bind({"option"}, "8", function() hs.eventtap.keyStroke({"cmd"}, "q", 0) end)
+
+local grid = require "hs.grid"
+
+-- grid.MARGINX = 10
+-- grid.MARGINY = 10
+-- grid.GRIDHEIGHT = 3
+-- grid.GRIDWIDTH = 7
+
+
+hs.hotkey.bind(moveWindow, "Left",  grid.pushWindowLeft)
+hs.hotkey.bind(moveWindow, "Right",  grid.pushWindowRight)
+hs.hotkey.bind(moveWindow, "Up",  grid.pushWindowUp)
+hs.hotkey.bind(moveWindow, "Down",  grid.pushWindowDown)
+
+hs.hotkey.bind(resizeWindow, "Left",  grid.resizeWindowThinner)
+hs.hotkey.bind(resizeWindow, "Right",  grid.resizeWindowWider)
+hs.hotkey.bind(resizeWindow, "Up",  grid.resizeWindowTaller)
+hs.hotkey.bind(resizeWindow, "Down",  grid.resizeWindowShorter)
