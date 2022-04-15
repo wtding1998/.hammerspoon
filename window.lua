@@ -148,10 +148,10 @@ hs.hotkey.bind(moveWindow, "k",    hs.fnutils.partial(winresize, "up"))
 hs.hotkey.bind(moveWindow, "j",  hs.fnutils.partial(winresize, "down"))
 
 
-hs.hotkey.bind(moveWindow, "u", function() spoon.WinWin:moveAndResize("cornerNW") end)
-hs.hotkey.bind(moveWindow, "i", function() spoon.WinWin:moveAndResize("cornerNE") end)
-hs.hotkey.bind(moveWindow, "o", function() spoon.WinWin:moveAndResize("cornerSW") end)
-hs.hotkey.bind(moveWindow, "p", function() spoon.WinWin:moveAndResize("cornerSE") end)
+hs.hotkey.bind({"option", "shift", "ctrl"}, "h", function() spoon.WinWin:moveAndResize("cornerNW") end)
+hs.hotkey.bind({"option", "shift", "ctrl"}, "l", function() spoon.WinWin:moveAndResize("cornerNE") end)
+hs.hotkey.bind({"option", "shift", "ctrl"}, "j", function() spoon.WinWin:moveAndResize("cornerSW") end)
+hs.hotkey.bind({"option", "shift", "ctrl"}, "k", function() spoon.WinWin:moveAndResize("cornerSE") end)
 
 -- Center of the screen
 hs.hotkey.bind(moveWindow, "C", center)
