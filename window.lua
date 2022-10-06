@@ -171,8 +171,11 @@ hs.hotkey.bind({"ctrl", "alt", "cmd"}, "Left",  hs.fnutils.partial(winmovescreen
 hs.hotkey.bind({"ctrl", "alt", "cmd"}, "Right", hs.fnutils.partial(winmovescreen, "right"))
 
 -- close and lock
-hs.hotkey.bind({"option"}, "l", function() hs.caffeinate.systemSleep() end)
-hs.hotkey.bind({"shift", "option"}, "l", function() hs.caffeinate.lockScreen() end)
+-- hs.hotkey.bind({"shift", "option"}, "l", function() hs.caffeinate.lockScreen() end)
+hs.hotkey.bind({"shift", "option"}, "l", function() hs.caffeinate.startScreensaver() end)
+hs.hotkey.bind({"ctrl", "option", "command"}, "l", function() hs.caffeinate.systemSleep() end)
+-- https://github.com/Hammerspoon/hammerspoon/issues/142
+-- hs.hotkey.bind({"shift", "option"}, "l", function() hs.execute("open '/System/Library/CoreServices/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine'") end)
 
 -- close window and go to last app
 hs.hotkey.bind({"option"}, "0", function() hs.eventtap.keyStroke({"cmd"}, "w", 0) local app = hs.application.frontmostApplication() app:hide() end)

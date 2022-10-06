@@ -1,17 +1,19 @@
 -------------------------------------------------------------
 local myhyper = {'option'}
-hs.hotkey.bind(myhyper, "w", function() toggleEmacs() end)
+hs.hotkey.bind(myhyper, "o", function() toggleEmacs() end)
+hs.hotkey.bind(myhyper, "w", function() toggleEmacs() hs.eventtap.keyStroke({"option", "cmd"}, "h", 0) end)
 hs.hotkey.bind(myhyper, "1", function() toggleFinder() end)
 hs.hotkey.bind(myhyper, "3", function() toggleApp("com.microsoft.edgemac") end)
 hs.hotkey.bind(myhyper, "2", function() toggleApp("com.apple.Terminal") end)
 hs.hotkey.bind(myhyper, "4", function() toggleApp("com.apple.mail") end)
-hs.hotkey.bind(myhyper, "9", function() toggleApp("com.netease.163music") end)
+-- hs.hotkey.bind(myhyper, "9", function() toggleApp("com.netease.163music") end)
 hs.hotkey.bind(myhyper, "s", function() toggleApp("com.tencent.xinWeChat") end)
 hs.hotkey.bind(myhyper, "p", function() toggleApp("com.tencent.qq") end)
 -- hs.hotkey.bind(myhyper, "v", function() toggleApp("com.microsoft.VSCode") end)
 hs.hotkey.bind(myhyper, "q", function() toggleApp("com.apple.Preview") end)
 hs.hotkey.bind(myhyper, "z", function() toggleApp("org.zotero.zotero") end)
 hs.hotkey.bind(myhyper, "i", function() toggleApp("com.kingsoft.wpsoffice.mac") end)
+hs.hotkey.bind(myhyper, "k", function() hs.execute("/opt/homebrew/opt/emacs-plus@29/bin/emacsclient -e '(emacs-everywhere)'") end)
 
 
 -- hs.hotkey.bind(myhyper, "t", function() hs.execute("/Library/Input\\ Methods/Squirrel.app/Contents/MacOS/squirrel_client -t ascii_mode")  end )
@@ -136,7 +138,7 @@ function toggleEmacs()        --    toggle emacsclient if emacs daemon not start
             emacsApp:activate()      -- 将刚创建的窗口前置
          end
       end
---   hs.eventtap.keyStroke({"option", "cmd"}, "h", 0)
+
    end
 end
 
