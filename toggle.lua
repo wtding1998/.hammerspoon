@@ -13,6 +13,7 @@ hs.hotkey.bind(myhyper, "p", function() toggleApp("com.tencent.qq") end)
 hs.hotkey.bind(myhyper, "q", function() toggleApp("com.apple.Preview") end)
 hs.hotkey.bind(myhyper, "z", function() toggleApp("org.zotero.zotero") end)
 hs.hotkey.bind(myhyper, "i", function() toggleApp("com.kingsoft.wpsoffice.mac") end)
+hs.hotkey.bind(myhyper, "u", function() toggleApp("com.linguee.DeepLCopyTranslator") end)
 hs.hotkey.bind(myhyper, "k", function() hs.execute("/opt/homebrew/opt/emacs-plus@29/bin/emacsclient -e '(emacs-everywhere)'") end)
 
 
