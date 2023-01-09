@@ -179,6 +179,7 @@ hs.hotkey.bind({"ctrl", "option", "command"}, "l", function() hs.caffeinate.syst
 
 -- close window and go to last app
 hs.hotkey.bind({"option"}, "0", function() hs.eventtap.keyStroke({"cmd"}, "w", 0) local app = hs.application.frontmostApplication() app:hide() end)
+hs.hotkey.bind({"option"}, "x", function() hs.eventtap.keyStroke({"cmd"}, "w", 0) local app = hs.application.frontmostApplication() app:hide() end)
 hs.hotkey.bind({"option"}, "8", function() hs.eventtap.keyStroke({"cmd"}, "q", 0) end)
 
 local grid = require "hs.grid"

@@ -11,5 +11,36 @@ function changeVolume(diff)
   end
 end
 
-hs.hotkey.bind({'ctrl', 'alt', 'cmd'}, 'Down', changeVolume(-5))
-hs.hotkey.bind({'ctrl', 'alt', 'cmd'}, 'Up', changeVolume(5))
+local soundHyper = {'option', 'ctrl'}
+hs.hotkey.bind(soundHyper, 'j', changeVolume(-5))
+hs.hotkey.bind(soundHyper, 'k', changeVolume(5))
+
+function toggleVolume()
+  if hs.audiodevice.defaultOutputDevice():outputMuted() then
+    hs.audiodevice.defaultOutputDevice():setMuted(false)
+    hs.alert('unmuted')
+  else
+    hs.audiodevice.defaultOutputDevice():setMuted(true)
+    hs.alert('muted')
+  end
+end
+
+hs.hotkey.bind(soundHyper, 'm', function() toggleVolume() end)
+
+-- local hyper     = {"ctrl", "alt", "cmd"}
+-- local lesshyper = {"ctrl", "alt"}
+-- hs.loadSpoon("GlobalMute")
+-- spoon.GlobalMute:bindHotkeys({
+--   unmute = {hyper, "u"},
+--   mute   = {hyper, "m"},
+--   toggle = {hyper, "space"}
+-- })
+-- spoon.GlobalMute:configure({
+--   -- unmute_background = 'file:///Library/Desktop%20Pictures/Solid%20Colors/Red%20Orange.png',
+--   -- mute_background   = 'file:///Library/Desktop%20Pictures/Solid%20Colors/Turquoise%20Green.png',
+--   enforce_desired_state = true,
+--   stop_sococo_for_zoom  = true,
+--   unmute_title = " U",
+--   mute_title = " M",
+--   -- change_screens = "SCREENNAME1, SCREENNAME2"  -- This will only change the background of the specific screens.  string.find()
+-- })

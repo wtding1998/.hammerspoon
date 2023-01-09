@@ -1,0 +1,3 @@
+[submodule "Spoons/global-mute-spoon"]
+	path = Spoons/global-mute-spoon
+	url = git@github.com:cmaahs/global-mute-spoon.git
