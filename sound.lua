@@ -27,6 +27,25 @@ end
 
 hs.hotkey.bind(soundHyper, 'm', function() toggleVolume() end)
 
+-- copied from https://gist.github.com/huytd/20f98ecb2bf1d76b4de9f6c21f5fb37c
+-- hyper + l = Next song
+hs.hotkey.bind(soundHyper, "l", function()
+  hs.eventtap.event.newSystemKeyEvent('NEXT', true):post()
+  hs.eventtap.event.newSystemKeyEvent('NEXT', false):post()
+end)
+
+-- hyper + h = Prev song
+hs.hotkey.bind(soundHyper, "h", function()
+  hs.eventtap.event.newSystemKeyEvent('PREVIOUS', true):post()
+  hs.eventtap.event.newSystemKeyEvent('PREVIOUS', false):post()
+end)
+
+-- hyper + space = Play / Pause
+hs.hotkey.bind(soundHyper, "space", function()
+  hs.eventtap.event.newSystemKeyEvent('PLAY', true):post()
+  hs.eventtap.event.newSystemKeyEvent('PLAY', false):post()
+end)
+
 -- local hyper     = {"ctrl", "alt", "cmd"}
 -- local lesshyper = {"ctrl", "alt"}
 -- hs.loadSpoon("GlobalMute")
