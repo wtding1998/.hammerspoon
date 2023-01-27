@@ -1,7 +1,7 @@
 -------------------------------------------------------------
 local myhyper = {'option'}
 hs.hotkey.bind(myhyper, "w", function() toggleEmacs() end)
--- hs.hotkey.bind(myhyper, "j", function() toggleEmacs() hs.eventtap.keyStroke({"option", "cmd"}, "h", 0) end)
+hs.hotkey.bind(myhyper, "j", function() toggleEmacs() hs.eventtap.keyStroke({"option", "cmd"}, "h", 0) end)
 hs.hotkey.bind(myhyper, "1", function() toggleFinder() end)
 hs.hotkey.bind(myhyper, "3", function() toggleApp("com.microsoft.edgemac") end)
 hs.hotkey.bind(myhyper, "2", function() toggleApp("com.apple.Terminal") end)
@@ -14,7 +14,7 @@ hs.hotkey.bind(myhyper, "q", function() toggleApp("com.apple.Preview") end)
 hs.hotkey.bind(myhyper, "z", function() toggleApp("org.zotero.zotero") end)
 hs.hotkey.bind(myhyper, "i", function() toggleApp("com.kingsoft.wpsoffice.mac") end)
 hs.hotkey.bind(myhyper, "u", function() toggleApp("com.linguee.DeepLCopyTranslator") end)
--- hs.hotkey.bind(myhyper, "k", function() hs.execute("/opt/homebrew/opt/emacs-plus@29/bin/emacsclient -e '(emacs-everywhere)'") end)
+hs.hotkey.bind(myhyper, "k", function() hs.execute("/opt/homebrew/opt/emacs-plus@29/bin/emacsclient -e '(emacs-everywhere)'") end)
 
 
 -- hs.hotkey.bind(myhyper, "t", function() hs.execute("/Library/Input\\ Methods/Squirrel.app/Contents/MacOS/squirrel_client -t ascii_mode")  end )
