@@ -1,9 +1,12 @@
+-- to obtain bundle ID:
+-- /usr/libexec/PlistBuddy -c 'Print CFBundleIdentifier' /Applications/Safari.app/Contents/Info.plist
+-- lsappinfo info -only bundleid Finder
 -------------------------------------------------------------
 local myhyper = {'option'}
 hs.hotkey.bind(myhyper, "w", function() toggleEmacs() end)
 hs.hotkey.bind(myhyper, "j", function() toggleEmacs() hs.eventtap.keyStroke({"option", "cmd"}, "h", 0) end)
 hs.hotkey.bind(myhyper, "1", function() toggleFinder() end)
-hs.hotkey.bind(myhyper, "3", function() toggleApp("com.microsoft.edgemac") end)
+hs.hotkey.bind(myhyper, "3", function() toggleApp("com.microsoft.edgemac.Dev") end)
 hs.hotkey.bind(myhyper, "2", function() toggleApp("com.apple.Terminal") end)
 hs.hotkey.bind(myhyper, "4", function() toggleApp("com.apple.mail") end)
 -- hs.hotkey.bind(myhyper, "9", function() toggleApp("com.netease.163music") end)
@@ -13,7 +16,8 @@ hs.hotkey.bind(myhyper, "p", function() toggleApp("com.tencent.qq") end)
 hs.hotkey.bind(myhyper, "q", function() toggleApp("com.apple.Preview") end)
 hs.hotkey.bind(myhyper, "z", function() toggleApp("org.zotero.zotero") end)
 hs.hotkey.bind(myhyper, "i", function() toggleApp("com.kingsoft.wpsoffice.mac") end)
-hs.hotkey.bind(myhyper, "u", function() toggleApp("com.linguee.DeepLCopyTranslator") end)
+-- hs.hotkey.bind(myhyper, "u", function() toggleApp("com.linguee.DeepLCopyTranslator") end)
+hs.hotkey.bind(myhyper, "u", function() toggleApp("com.TickTick.task.mac") end)
 hs.hotkey.bind(myhyper, "k", function() hs.execute("/opt/homebrew/opt/emacs-plus@29/bin/emacsclient -e '(emacs-everywhere)'") end)
 
 
@@ -235,6 +239,11 @@ function toggle_clash_rule()
    hs.eventtap.keyStroke({}, "return", 0)
 end
 
-hs.hotkey.bind(myhyper, '/', toggle_clash)
+function setClashXProxy()
+   hs.osascript.applescriptFromFile("toggle_clash.scpt")
+end
+
+
+hs.hotkey.bind(myhyper, '/', setClashXProxy)
 hs.hotkey.bind(myhyper, '-', toggle_clash_global)
 hs.hotkey.bind(myhyper, '=', toggle_clash_rule)
