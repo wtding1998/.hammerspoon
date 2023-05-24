@@ -64,13 +64,13 @@ hs.hotkey.bind(soundHyper, "/", nextInput)
 
 -- copied from https://gist.github.com/huytd/20f98ecb2bf1d76b4de9f6c21f5fb37c
 -- hyper + l = Next song
-hs.hotkey.bind(soundHyper, "[", function()
+hs.hotkey.bind(soundHyper, "]", function()
   hs.eventtap.event.newSystemKeyEvent('NEXT', true):post()
   hs.eventtap.event.newSystemKeyEvent('NEXT', false):post()
 end)
 
 -- hyper + h = Prev song
-hs.hotkey.bind(soundHyper, "]", function()
+hs.hotkey.bind(soundHyper, "[", function()
   hs.eventtap.event.newSystemKeyEvent('PREVIOUS', true):post()
   hs.eventtap.event.newSystemKeyEvent('PREVIOUS', false):post()
 end)

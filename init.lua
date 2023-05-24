@@ -7,6 +7,6 @@ end)
 -- load other config
 require "window"
 require "toggle"
-require "clipboard"
+-- require "clipboard"
 require "sound"
 -- require "edit"
