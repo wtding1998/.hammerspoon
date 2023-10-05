@@ -154,7 +154,7 @@ hs.hotkey.bind({"option", "shift", "ctrl"}, "j", function() spoon.WinWin:moveAnd
 hs.hotkey.bind({"option", "shift", "ctrl"}, "k", function() spoon.WinWin:moveAndResize("cornerSE") end)
 
 -- Center of the screen
-hs.hotkey.bind(moveWindow, "C", center)
+hs.hotkey.bind(resizeWindow, "i", center)
 
 -- Thirds of the screen
 -- hs.hotkey.bind(moveWindow, "Left",  left_third)

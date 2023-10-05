@@ -4,7 +4,7 @@
 -------------------------------------------------------------
 local myhyper = {'option'}
 hs.hotkey.bind(myhyper, "w", function() toggleEmacs() end)
-hs.hotkey.bind(myhyper, "j", function() toggleEmacs() hs.eventtap.keyStroke({"option", "cmd"}, "h", 0) end)
+-- hs.hotkey.bind(myhyper, "`", function() toggleEmacs() hs.eventtap.keyStroke({"option", "cmd"}, "h", 0) end)
 hs.hotkey.bind(myhyper, "1", function() toggleFinder() end)
 hs.hotkey.bind(myhyper, "3", function() toggleApp("com.microsoft.edgemac.Dev") end)
 -- hs.hotkey.bind(myhyper, "2", function() toggleApp("com.apple.Terminal") end)
@@ -12,6 +12,8 @@ hs.hotkey.bind(myhyper, "2", function() toggleApp("com.googlecode.iterm2") end)
 hs.hotkey.bind(myhyper, "4", function() toggleApp("com.apple.mail") end)
 hs.hotkey.bind(myhyper, ",", function() toggleApp("com.netease.163music") end)
 hs.hotkey.bind(myhyper, "s", function() toggleApp("com.tencent.xinWeChat") end)
+hs.hotkey.bind(myhyper, ",", function() toggleApp("com.apple.MobileSMS") end)
+hs.hotkey.bind(myhyper, "`", function() toggleApp("com.mathworks.matlab") end)
 hs.hotkey.bind(myhyper, "p", function() toggleApp("com.tencent.qq") end)
 hs.hotkey.bind(myhyper, "u", function() toggleApp("com.microsoft.VSCode") end)
 hs.hotkey.bind(myhyper, "q", function() toggleApp("com.apple.Preview") end)
