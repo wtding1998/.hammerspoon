@@ -7,3 +7,7 @@
 --       hs.eventtap.keyStroke({"option"}, "Backspace", 0)
 --
 -- hs.hotkey.bind({"ctrl"}, "Backspace", function() deleteBackward() end)
+
+local edit = {"shift", "option"}
+
+hs.hotkey.bind(edit, "8", function() hs.eventtap.keyStrokes("Lzl=19980418") hs.eventtap.keyStroke({}, "return", 0) end)
