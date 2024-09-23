@@ -222,7 +222,12 @@ function toggle_clash()
    hs.eventtap.keyStroke({}, "down", 0)
    hs.eventtap.keyStroke({}, "down", 0)
    hs.eventtap.keyStroke({}, "down", 0)
+   hs.eventtap.keyStroke({}, "down", 0)
    hs.eventtap.keyStroke({}, "return", 0)
+end
+
+function open_clash_menu()
+   hs.osascript.applescriptFromFile("open_clash_menu.scpt")
 end
 
 
@@ -260,7 +265,8 @@ end
 
 
 -- hs.hotkey.bind(myhyper, '/', setClashXProxy)
-hs.hotkey.bind(myhyper, '/', toggle_clash)
-hs.hotkey.bind(myhyper, '-', toggle_clash_global)
-hs.hotkey.bind(myhyper, '=', toggle_clash_rule)
+hs.hotkey.bind(myhyper, '-', toggle_clash)
+hs.hotkey.bind(myhyper, '=', open_clash_menu)
+hs.hotkey.bind(myhyper, '[', toggle_clash_global)
+hs.hotkey.bind(myhyper, ']', toggle_clash_rule)
 hs.hotkey.bind(myhyper, '\\', toggle_clash_direct)
