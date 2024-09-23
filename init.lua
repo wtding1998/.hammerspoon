@@ -1,9 +1,9 @@
 -- reload configuration
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "i", function()
   hs.reload()
-  hs.alert.show("Config loaded")
 end)
 
+hs.alert.show("Config Reloaded")
 -- load other config
 require "window"
 require "toggle"
