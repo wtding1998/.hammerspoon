@@ -131,9 +131,14 @@ end
 -------- Key bindings
 
 local resizeWindow = {"shift", "option"}
-local moveWindow = {"ctrl", "option"}
+local moveWindow = {"shift", "ctrl", "option"}
 
 hs.loadSpoon("WinWin")
+local grid = require "hs.grid"
+-- grid.MARGINX = 10
+-- grid.MARGINY = 10
+-- grid.GRIDHEIGHT = 3
+-- grid.GRIDWIDTH = 7
 
 -- Halves of the screen
 -- hs.hotkey.bind({"option"}, "Left",  hs.fnutils.partial(winresize, "left"))
@@ -142,20 +147,35 @@ hs.loadSpoon("WinWin")
 -- hs.hotkey.bind({"option"}, "Down",  hs.fnutils.partial(winresize, "down"))
 
 
-hs.hotkey.bind(moveWindow, "h",  hs.fnutils.partial(winresize, "left"))
-hs.hotkey.bind(moveWindow, "l", hs.fnutils.partial(winresize, "right"))
-hs.hotkey.bind(moveWindow, "k",    hs.fnutils.partial(winresize, "up"))
-hs.hotkey.bind(moveWindow, "j",  hs.fnutils.partial(winresize, "down"))
+hs.hotkey.bind(resizeWindow, "h", hs.fnutils.partial(winresize, "left"))
+hs.hotkey.bind(resizeWindow, "l", hs.fnutils.partial(winresize, "right"))
+hs.hotkey.bind(resizeWindow, "k", hs.fnutils.partial(winresize, "up"))
+hs.hotkey.bind(resizeWindow, "j", hs.fnutils.partial(winresize, "down"))
+hs.hotkey.bind(resizeWindow, "y", function() spoon.WinWin:moveAndResize("cornerNW") end)
+hs.hotkey.bind(resizeWindow, "u", function() spoon.WinWin:moveAndResize("cornerNE") end)
+hs.hotkey.bind(resizeWindow, "n", function() spoon.WinWin:moveAndResize("cornerSW") end)
+hs.hotkey.bind(resizeWindow, "m", function() spoon.WinWin:moveAndResize("cornerSE") end)
 
-
-hs.hotkey.bind({"option", "shift", "ctrl"}, "h", function() spoon.WinWin:moveAndResize("cornerNW") end)
-hs.hotkey.bind({"option", "shift", "ctrl"}, "l", function() spoon.WinWin:moveAndResize("cornerNE") end)
-hs.hotkey.bind({"option", "shift", "ctrl"}, "j", function() spoon.WinWin:moveAndResize("cornerSW") end)
-hs.hotkey.bind({"option", "shift", "ctrl"}, "k", function() spoon.WinWin:moveAndResize("cornerSE") end)
+hs.hotkey.bind(resizeWindow, "Left",  grid.resizeWindowThinner)
+hs.hotkey.bind(resizeWindow, "Right",  grid.resizeWindowWider)
+hs.hotkey.bind(resizeWindow, "Up",  grid.resizeWindowTaller)
+hs.hotkey.bind(resizeWindow, "Down",  grid.resizeWindowShorter)
 
 -- Center of the screen
 hs.hotkey.bind(resizeWindow, "i", center)
 
+hs.hotkey.bind(moveWindow, "h",  grid.pushWindowLeft)
+hs.hotkey.bind(moveWindow, "l",  grid.pushWindowRight)
+hs.hotkey.bind(moveWindow, "k",  grid.pushWindowUp)
+hs.hotkey.bind(moveWindow, "j",  grid.pushWindowDown)
+
+-- Move between screens
+-- hs.hotkey.bind({"ctrl", "alt", "cmd"}, "Left",  hs.fnutils.partial(winmovescreen, "left"))
+-- hs.hotkey.bind({"ctrl", "alt", "cmd"}, "Right", hs.fnutils.partial(winmovescreen, "right"))
+hs.hotkey.bind(moveWindow, "Left",  hs.fnutils.partial(winmovescreen, "left"))
+hs.hotkey.bind(moveWindow, "Right", hs.fnutils.partial(winmovescreen, "right"))
+hs.hotkey.bind(moveWindow, "Up",  hs.fnutils.partial(winmovescreen, "up"))
+hs.hotkey.bind(moveWindow, "Down", hs.fnutils.partial(winmovescreen, "down"))
 -- Thirds of the screen
 -- hs.hotkey.bind(moveWindow, "Left",  left_third)
 -- hs.hotkey.bind(moveWindow, "Right", right_third)
@@ -166,13 +186,9 @@ hs.hotkey.bind(resizeWindow, "i", center)
 hs.hotkey.bind({"option"}, "F", toggle_window_maximized)
 hs.hotkey.bind({"ctrl", "alt", "cmd"}, "Up",    hs.fnutils.partial(winresize, "max"))
 
--- Move between screens
-hs.hotkey.bind({"ctrl", "alt", "cmd"}, "Left",  hs.fnutils.partial(winmovescreen, "left"))
-hs.hotkey.bind({"ctrl", "alt", "cmd"}, "Right", hs.fnutils.partial(winmovescreen, "right"))
-
 -- close and lock
 -- hs.hotkey.bind({"shift", "option"}, "l", function() hs.caffeinate.lockScreen() end)
-hs.hotkey.bind({"shift", "option"}, "l", function() hs.caffeinate.startScreensaver() end)
+-- hs.hotkey.bind({"shift", "option"}, "l", function() hs.caffeinate.startScreensaver() end)
 hs.hotkey.bind({"ctrl", "option", "command"}, "l", function() hs.caffeinate.systemSleep() end)
 -- https://github.com/Hammerspoon/hammerspoon/issues/142
 -- hs.hotkey.bind({"shift", "option"}, "l", function() hs.execute("open '/System/Library/CoreServices/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine'") end)
@@ -181,21 +197,3 @@ hs.hotkey.bind({"ctrl", "option", "command"}, "l", function() hs.caffeinate.syst
 hs.hotkey.bind({"option"}, "0", function() hs.eventtap.keyStroke({"cmd"}, "w", 0) local app = hs.application.frontmostApplication() app:hide() end)
 hs.hotkey.bind({"option"}, "c", function() hs.eventtap.keyStroke({"cmd"}, "w", 0) local app = hs.application.frontmostApplication() app:hide() end)
 hs.hotkey.bind({"option"}, "8", function() hs.eventtap.keyStroke({"cmd"}, "q", 0) end)
-
-local grid = require "hs.grid"
-
--- grid.MARGINX = 10
--- grid.MARGINY = 10
--- grid.GRIDHEIGHT = 3
--- grid.GRIDWIDTH = 7
-
-
-hs.hotkey.bind(moveWindow, "Left",  grid.pushWindowLeft)
-hs.hotkey.bind(moveWindow, "Right",  grid.pushWindowRight)
-hs.hotkey.bind(moveWindow, "Up",  grid.pushWindowUp)
-hs.hotkey.bind(moveWindow, "Down",  grid.pushWindowDown)
-
-hs.hotkey.bind(resizeWindow, "Left",  grid.resizeWindowThinner)
-hs.hotkey.bind(resizeWindow, "Right",  grid.resizeWindowWider)
-hs.hotkey.bind(resizeWindow, "Up",  grid.resizeWindowTaller)
-hs.hotkey.bind(resizeWindow, "Down",  grid.resizeWindowShorter)
