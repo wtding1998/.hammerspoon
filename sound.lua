@@ -11,7 +11,7 @@ function changeVolume(diff)
   end
 end
 
-local soundHyper = {'option', 'cmd'}
+local soundHyper = {'option', 'ctrl'}
 hs.hotkey.bind(soundHyper, 'j', changeVolume(-5))
 hs.hotkey.bind(soundHyper, 'k', changeVolume(5))
 

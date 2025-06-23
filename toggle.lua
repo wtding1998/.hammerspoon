@@ -22,8 +22,8 @@ hs.hotkey.bind(myhyper, "q", function() toggleApp("com.apple.Preview") end)
 hs.hotkey.bind(myhyper, "z", function() toggleApp("org.zotero.zotero") end)
 hs.hotkey.bind(myhyper, "i", function() toggleApp("com.kingsoft.wpsoffice.mac") end)
 -- hs.hotkey.bind(myhyper, ".", function() toggleApp("com.linguee.DeepLCopyTranslator") end)
--- hs.hotkey.bind(myhyper, "u", function() toggleApp("com.TickTick.task.mac") end)
-hs.hotkey.bind(myhyper, "k", function() hs.execute("/opt/homebrew/opt/emacs-plus@29/bin/emacsclient -e '(emacs-everywhere)'") end)
+hs.hotkey.bind(myhyper, "u", function() toggleApp("com.TickTick.task.mac") end)
+hs.hotkey.bind(myhyper, "k", function() hs.execute("/opt/homebrew/bin/emacsclient -e '(emacs-everywhere)'") end)
 
 
 -- hs.hotkey.bind(myhyper, "t", function() hs.execute("/Library/Input\\ Methods/Squirrel.app/Contents/MacOS/squirrel_client -t ascii_mode")  end )
