@@ -10,3 +10,6 @@ require "toggle"
 -- require "clipboard"
 require "sound"
 require "edit"
+
+-- ABC/Rime switching and Doubao voice toggle
+require "voice_input"
